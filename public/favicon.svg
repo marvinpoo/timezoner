@@ -1,0 +1,115 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  {/* Decorative outer ring */}
+  <circle
+    cx="16"
+    cy="16"
+    r="15"
+    stroke="#2eff93"
+    strokeWidth="1"
+    strokeDasharray="1 2"
+    className="outer-ring"
+  />
+
+  {/* Artistic globe base with wave pattern */}
+  <path
+    d="M16 28C22.6274 28 28 22.6274 28 16C28 9.37258 22.6274 4 16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28Z"
+    stroke="#2eff93"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeDasharray="2 4"
+    className="globe-base"
+  />
+  
+  {/* Flowing meridians */}
+  <path
+    d="M16 4C18.5 8 19 12 19 16C19 20 18.5 24 16 28"
+    stroke="#2eff93"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    className="meridian"
+  />
+  <path
+    d="M16 4C13.5 8 13 12 13 16C13 20 13.5 24 16 28"
+    stroke="#2eff93"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    className="meridian"
+  />
+  
+  {/* Decorative latitude lines */}
+  <path
+    d="M8 16C8 16 12 18.5 16 18.5C20 18.5 24 16 24 16"
+    stroke="#2eff93"
+    strokeWidth="1"
+    strokeLinecap="round"
+    strokeDasharray="1 2"
+    className="latitude"
+  />
+  <path
+    d="M9 12C9 12 12.5 14.5 16 14.5C19.5 14.5 23 12 23 12"
+    stroke="#2eff93"
+    strokeWidth="1"
+    strokeLinecap="round"
+    strokeDasharray="1 2"
+    className="latitude"
+  />
+  
+  {/* Artistic time spiral */}
+  <path
+    d="M16 10C18 10 19.5 11.5 19.5 13.5C19.5 15.5 18 17 16 17C14 17 12.5 18.5 12.5 20.5C12.5 22.5 14 24 16 24"
+    stroke="#2eff93"
+    strokeWidth="2"
+    strokeLinecap="round"
+    className="time-spiral"
+  />
+  
+  {/* Dynamic time markers */}
+  <circle cx="16" cy="8" r="1.5" fill="#2eff93" className="marker" />
+  <circle cx="24" cy="16" r="1.5" fill="#2eff93" className="marker" />
+  <circle cx="16" cy="24" r="1.5" fill="#2eff93" className="marker" />
+  <circle cx="8" cy="16" r="1.5" fill="#2eff93" className="marker" />
+  
+  {/* Pulsing center */}
+  <circle cx="16" cy="16" r="2.5" fill="#2eff93" fillOpacity="0.3" className="center-halo" />
+  <circle cx="16" cy="16" r="1.5" fill="#2eff93" className="center-point" />
+
+  <style>
+    {`
+      svg {
+        color: #2eff93;
+      }
+      
+      .outer-ring {
+        opacity: 0.4;
+      }
+      
+      .globe-base {
+        opacity: 0.6;
+      }
+      
+      .meridian {
+        opacity: 0.8;
+      }
+      
+      .latitude {
+        opacity: 0.4;
+      }
+      
+      .time-spiral {
+        opacity: 0.9;
+      }
+      
+      .marker {
+        opacity: 0.8;
+      }
+      
+      .center-halo {
+        opacity: 0.3;
+      }
+      
+      .center-point {
+        opacity: 1;
+      }
+    `}
+  </style>
+</svg>

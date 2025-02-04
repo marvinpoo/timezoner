@@ -1,0 +1,31 @@
+export default {
+  translation: {
+    timeComparison: 'ᖃᐅᔨᓴᕐᓂᖅ ᐃᑲᕐᕋᓂᒃ',
+    selectReferenceTimezone: 'ᓂᕈᐊᕐᓗᒍ ᓇᓗᓇᐃᒃᑯᑕᖅ ᐃᑲᕐᕋᖓ',
+    comparingTimesRelativeTo: 'ᐊᔾᔨᒌᙱᓐᓂᖏᑦ ᐃᑲᕐᕋᐃᑦ {{city}}, {{country}}',
+    searchReferenceTimezone: 'ᕿᓂᕐᓗᒍ ᓇᓗᓇᐃᒃᑯᑕᖅ ᐃᑲᕐᕋᖓ...',
+    searchCompareTimezones: 'ᕿᓂᕐᓗᒋᑦ ᐃᑲᕐᕋᐃᑦ ᐊᔾᔨᒌᙱᓐᓂᖏᓐᓂᒃ...',
+    newGroup: 'ᓄᑖᖅ ᑲᑎᙵᔪᑦ',
+    noTimezonesFound: 'ᐃᑲᕐᕋᓂᒃ ᓇᓂᓯᙱᑦᑐᖅ',
+    shareGroup: 'ᑐᓂᐅᖅᑲᐃᓂᖅ ᑲᑎᙵᔪᓂᒃ',
+    editGroupName: 'ᐋᖅᑭᒋᐊᕐᓗᒍ ᑲᑎᙵᔪᑦ ᐊᑎᖓ',
+    deleteGroup: 'ᐲᕐᓗᒍ ᑲᑎᙵᔪᑦ',
+    createNewGroup: 'ᓴᖅᑮᓗᓂ ᓄᑖᒥᒃ ᑲᑎᙵᔪᓂᒃ',
+    enterGroupName: 'ᑎᑎᕋᕐᓗᒍ ᑲᑎᙵᔪᑦ ᐊᑎᖓ...',
+    linkCopied: 'ᑕᑯᓂᐊᕈᑎ ᐊᔾᔨᓕᐅᖅᑕᐅᔪᖅ!',
+    failedToCopy: 'ᑕᑯᓂᐊᕈᑎᒥᒃ ᐊᔾᔨᓕᐅᕆᔪᓐᓇᙱᑦᑐᖅ',
+    european: 'ᐃᐅᕈᑉᒥᐅᑕᖅ',
+    asian: 'ᐊᓰᓯᐊᒥᐅᑕᖅ',
+    african: 'ᐊᕝᕕᕆᑲᒥᐅᑕᖅ',
+    northAmerican: 'ᐅᐊᖕᓇᖅ ᐊᒥᐊᓕᑲᒥᐅᑕᖅ',
+    southAmerican: 'ᓂᒋᖅ ᐊᒥᐊᓕᑲᒥᐅᑕᖅ',
+    indigenous: 'ᓄᓇᖃᖅᑳᖅᓯᒪᔪᑦ',
+    dayTime: 'ᐅᓪᓗᒃᑯᑦ',
+    nightTime: 'ᐅᓐᓄᐊᒃᑯᑦ',
+    currentTime: 'ᒫᓐᓇ ᐃᑲᕐᕋᖓ',
+    dstActive: 'ᐅᐱᕐᖔᒃᑯᑦ ᐃᑲᕐᕋᖓ',
+    selectTimezone: 'ᓂᕈᐊᕐᓗᒍ ᐃᑲᕐᕋᖓ',
+    removeTimezone: 'ᐲᕐᓗᒍ ᐃᑲᕐᕋᖓ',
+    compareTimezones: 'ᐊᔾᔨᒌᙱᓐᓂᖏᑦ ᐃᑲᕐᕋᐃᑦ'
+  }
+};

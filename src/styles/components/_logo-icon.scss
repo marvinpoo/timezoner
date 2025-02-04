@@ -1,0 +1,128 @@
+@import '../variables';
+@import '../mixins';
+
+.logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: $spacing-2;
+  color: var(--accent-color);
+  
+  svg {
+    .outer-ring {
+      opacity: 0.3;
+      animation: rotate 30s linear infinite reverse;
+      transform-origin: center;
+    }
+    
+    .globe-base {
+      opacity: 0.6;
+      animation: rotate 20s linear infinite;
+      transform-origin: center;
+      filter: drop-shadow(0 0 2px currentColor);
+    }
+    
+    .meridian {
+      opacity: 0.8;
+      
+      &.meridian-1 {
+        animation: flowUp 8s ease-in-out infinite;
+      }
+      
+      &.meridian-2 {
+        animation: flowDown 8s ease-in-out infinite;
+      }
+    }
+    
+    .latitude {
+      opacity: 0.4;
+      
+      &.latitude-1 {
+        animation: pulse 4s ease-in-out infinite;
+      }
+      
+      &.latitude-2 {
+        animation: pulse 4s ease-in-out infinite reverse;
+      }
+    }
+    
+    .time-spiral {
+      opacity: 0.9;
+      stroke-dasharray: 180;
+      stroke-dashoffset: 180;
+      animation: draw 3s ease-out forwards, glow 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 3px currentColor);
+    }
+    
+    .marker-group {
+      animation: float 3s ease-in-out infinite;
+      
+      &.marker-1 { animation-delay: 0s; }
+      &.marker-2 { animation-delay: 0.75s; }
+      &.marker-3 { animation-delay: 1.5s; }
+      &.marker-4 { animation-delay: 2.25s; }
+    }
+    
+    .center-halo {
+      animation: halo 2s ease-in-out infinite;
+    }
+    
+    .center-point {
+      animation: pulse 2s ease-in-out infinite;
+      filter: drop-shadow(0 0 2px currentColor);
+    }
+  }
+  
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes flowUp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
+  }
+  
+  @keyframes flowDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(2px); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+  
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  @keyframes glow {
+    0%, 100% { filter: drop-shadow(0 0 2px currentColor); }
+    50% { filter: drop-shadow(0 0 8px currentColor); }
+  }
+  
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0) scale(1);
+      opacity: 0.8;
+    }
+    50% { 
+      transform: translateY(-2px) scale(1.1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes halo {
+    0%, 100% { 
+      transform: scale(1);
+      opacity: 0.2;
+    }
+    50% { 
+      transform: scale(1.2);
+      opacity: 0.3;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@import '../variables';
+@import '../mixins';
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: $spacing-4;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  background-color: var(--card-background);
+  border-top: 1px solid var(--border-color);
+  z-index: 100;
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $spacing-4;
+  }
+
+  .footer-text {
+    flex: 1;
+    text-align: center;
+  }
+
+  .version {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    opacity: 0.8;
+  }
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color $transition-base;
+
+    &:hover {
+      color: var(--text-primary);
+    }
+  }
+}

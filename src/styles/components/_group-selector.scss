@@ -1,0 +1,215 @@
+@import '../variables';
+@import '../mixins';
+
+.group-selector {
+  position: fixed;
+  left: $spacing-4;
+  top: 0;
+  padding: $spacing-4;
+  z-index: 100;
+  
+  @media (max-width: $breakpoint-md) {
+    position: static;
+    padding: $spacing-2;
+    width: 100%;
+  }
+
+  .dropdown {
+    position: relative;
+    width: 300px;
+    
+    @media (max-width: $breakpoint-md) {
+      width: 100%;
+    }
+
+    .dropdown-trigger {
+      @include button-reset;
+      width: 100%;
+      padding: $spacing-3 $spacing-4;
+      background-color: var(--card-background);
+      border-radius: $border-radius;
+      box-shadow: 0 2px 8px var(--shadow-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: $spacing-2;
+      transition: all $transition-base;
+      color: var(--text-primary);
+      font-weight: 500;
+      
+      @media (max-width: $breakpoint-sm) {
+        padding: $spacing-2 $spacing-3;
+      }
+
+      &:hover {
+        background-color: var(--hover-color);
+        color: var(--accent-color);
+      }
+
+      .chevron {
+        transition: transform $transition-base;
+        color: var(--text-secondary);
+        flex-shrink: 0;
+
+        &.open {
+          transform: rotate(180deg);
+          color: var(--accent-color);
+        }
+      }
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: calc(100% + #{$spacing-2});
+      left: 0;
+      width: 100%;
+      background-color: var(--card-background);
+      border-radius: $border-radius;
+      box-shadow: 0 4px 12px var(--shadow-color);
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      z-index: 1000;
+      max-height: 60vh;
+      overflow-y: auto;
+      
+      @media (max-width: $breakpoint-md) {
+        position: fixed;
+        left: $spacing-2;
+        right: $spacing-2;
+        width: auto;
+      }
+      
+      @media (max-width: $breakpoint-sm) {
+        left: $spacing-1;
+        right: $spacing-1;
+      }
+
+      .group-item {
+        padding: $spacing-2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--border-color);
+        transition: all $transition-base;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--hover-color);
+        }
+
+        &.active {
+          background-color: var(--hover-color);
+          color: var(--accent-color);
+        }
+
+        .group-name {
+          font-weight: 500;
+        }
+
+        .group-actions {
+          display: flex;
+          gap: $spacing-1;
+          opacity: 0;
+          transition: opacity $transition-base;
+
+          .action-button {
+            @include button-reset;
+            padding: $spacing-1;
+            border-radius: $border-radius;
+            color: var(--text-secondary);
+            transition: all $transition-base;
+
+            &:hover:not(.disabled) {
+              background-color: var(--hover-color);
+              color: var(--accent-color);
+            }
+
+            &.disabled {
+              opacity: 0.5;
+              cursor: not-allowed;
+            }
+          }
+        }
+
+        &:hover .group-actions {
+          opacity: 1;
+        }
+
+        form {
+          width: 100%;
+          
+          input {
+            width: 100%;
+            padding: $spacing-2;
+            border: none;
+            border-radius: $border-radius;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            font-size: inherit;
+            
+            &:focus {
+              outline: none;
+              box-shadow: 0 0 0 2px var(--accent-color);
+            }
+          }
+        }
+      }
+
+      .dropdown-divider {
+        height: 1px;
+        background-color: var(--border-color);
+        margin: $spacing-1 0;
+      }
+
+      .create-group-button {
+        @include button-reset;
+        width: 100%;
+        padding: $spacing-2;
+        display: flex;
+        align-items: center;
+        gap: $spacing-2;
+        color: var(--accent-color);
+        transition: all $transition-base;
+
+        &:hover {
+          background-color: var(--hover-color);
+        }
+      }
+
+      .create-group-form {
+        padding: $spacing-2;
+
+        input {
+          width: 100%;
+          padding: $spacing-2;
+          border: none;
+          border-radius: $border-radius;
+          background-color: var(--background-color);
+          color: var(--text-primary);
+          font-size: inherit;
+          
+          &:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--accent-color);
+          }
+        }
+      }
+    }
+
+    .share-tooltip {
+      position: absolute;
+      top: calc(100% + #{$spacing-4});
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--card-background);
+      padding: $spacing-2 $spacing-4;
+      border-radius: $border-radius;
+      box-shadow: 0 2px 8px var(--shadow-color);
+      color: var(--text-primary);
+      font-size: 0.875rem;
+      white-space: nowrap;
+      z-index: 1001;
+      pointer-events: none;
+    }
+  }
+}

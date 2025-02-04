@@ -1,0 +1,138 @@
+@import '../variables';
+@import '../mixins';
+
+.mobile-timeline {
+  @media (max-width: $breakpoint-md) {
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: $spacing-2;
+
+      .day-night-indicator {
+        display: flex;
+        gap: $spacing-2;
+
+        .sun-icon {
+          color: #fb923c;
+          width: 16px;
+          height: 16px;
+        }
+
+        .moon-icon {
+          color: var(--text-secondary);
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+
+    .timeline-hours {
+      display: flex;
+      position: relative;
+      height: 64px;
+      background: var(--timeline-background);
+      border-radius: 12px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      cursor: grab;
+      touch-action: pan-x;
+      will-change: scroll-position;
+      transform: translateZ(0);
+      
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      
+      &.dragging {
+        cursor: grabbing;
+        scroll-behavior: auto;
+        
+        .timeline-hour {
+          pointer-events: none;
+        }
+      }
+      
+      .timeline-hour {
+        flex: 0 0 calc(100% / 6);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        user-select: none;
+        transition: background-color 0.2s ease;
+        will-change: transform;
+        
+        &.daytime {
+          background: var(--timeline-day);
+          
+          .hour-label {
+            color: var(--text-primary);
+          }
+        }
+        
+        &.nighttime {
+          background: var(--timeline-night);
+          
+          .hour-label {
+            color: var(--text-secondary);
+          }
+        }
+        
+        &.current {
+          background: var(--timeline-current);
+          box-shadow: inset 0 0 0 2px var(--accent-color);
+          
+          .hour-label {
+            color: #000000;
+            font-weight: 600;
+            transform: scale(1.1);
+          }
+          
+          &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+              45deg,
+              rgba(0, 0, 0, 0.05),
+              rgba(0, 0, 0, 0.1)
+            );
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 2px solid var(--accent-color);
+            border-radius: 4px;
+            pointer-events: none;
+            z-index: 2;
+          }
+        }
+
+        .hour-label {
+          font-size: 1.2rem;
+          font-weight: 500;
+          transition: transform 0.2s ease;
+          backface-visibility: hidden;
+        }
+
+        .hour-marker {
+          position: absolute;
+          bottom: 8px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background-color: currentColor;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

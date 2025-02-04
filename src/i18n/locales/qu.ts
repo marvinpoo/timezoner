@@ -1,0 +1,31 @@
+export default {
+  translation: {
+    timeComparison: 'Pacha Tupachiy',
+    selectReferenceTimezone: 'Pacha suyu akllay',
+    comparingTimesRelativeTo: '{{city}}, {{country}} pachawan tupachiy',
+    searchReferenceTimezone: 'Pacha suyuta maskay...',
+    searchCompareTimezones: 'Tupachina pacha suyukunata maskay...',
+    newGroup: 'Musuq Huñu',
+    noTimezonesFound: 'Mana pacha suyukuna tarisqachu',
+    shareGroup: 'Huñuta quy',
+    editGroupName: 'Huñup sutinta allichay',
+    deleteGroup: 'Huñuta qulluy',
+    createNewGroup: 'Musuq huñuta kamariy',
+    enterGroupName: 'Huñup sutinta qillqay...',
+    linkCopied: 'T\'inkisqa copiasqa!',
+    failedToCopy: 'Mana t\'inkisqa copiay atinchu',
+    european: 'Europamanta',
+    asian: 'Asiamanta',
+    african: 'Africamanta',
+    northAmerican: 'Wichay Americamanta',
+    southAmerican: 'Urin Americamanta',
+    indigenous: 'Runa Simikunamanta',
+    dayTime: 'P\'unchaw',
+    nightTime: 'Tuta',
+    currentTime: 'Kunan Pacha',
+    dstActive: 'Rupay Pacha',
+    selectTimezone: 'Pacha suyuta akllay',
+    removeTimezone: 'Pacha suyuta qichuy',
+    compareTimezones: 'Pacha suyukunata tupachiy'
+  }
+};

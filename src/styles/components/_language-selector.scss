@@ -1,0 +1,99 @@
+@import '../variables';
+@import '../mixins';
+
+.language-selector {
+  position: relative;
+  z-index: 100;
+
+  .language-button {
+    @include button-reset;
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    padding: $spacing-3 $spacing-4;
+    background-color: var(--card-background);
+    border-radius: $border-radius;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: all $transition-base;
+
+    &:hover {
+      background-color: var(--hover-color);
+      color: var(--accent-color);
+    }
+
+    .chevron {
+      transition: transform $transition-base;
+      color: var(--text-secondary);
+
+      &.open {
+        transform: rotate(180deg);
+        color: var(--accent-color);
+      }
+    }
+  }
+
+  .language-dropdown {
+    position: absolute;
+    top: calc(100% - #{$spacing-4});
+    right: 0;
+    width: 320px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: var(--card-background);
+    border-radius: $border-radius;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    z-index: 1000;
+
+    .language-group {
+      padding: $spacing-2;
+      border-bottom: 1px solid var(--border-color);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .group-label {
+        padding: $spacing-2 $spacing-3;
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .language-option {
+        @include button-reset;
+        width: 100%;
+        text-align: left;
+        padding: $spacing-2 $spacing-3;
+        display: flex;
+        flex-direction: column;
+        transition: all $transition-base;
+        border-radius: $border-radius;
+
+        &:hover {
+          background-color: var(--hover-color);
+          color: var(--accent-color);
+        }
+
+        &.active {
+          background-color: var(--hover-color);
+          color: var(--accent-color);
+        }
+
+        .native-name {
+          color: inherit;
+          font-weight: 500;
+        }
+
+        .english-name {
+          color: var(--text-secondary);
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+}

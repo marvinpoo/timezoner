@@ -1,0 +1,124 @@
+@import '../variables';
+@import '../mixins';
+
+.time-display {
+  @include card;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(140px, 180px) 1fr;
+  gap: $spacing-2;
+  align-items: center;
+  padding: $spacing-2;
+  
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: $spacing-1;
+    padding: $spacing-1;
+  }
+  
+  &.main {
+    border: 2px solid var(--primary-color);
+    
+    .time {
+      color: var(--primary-color);
+    }
+  }
+  
+  .time-info {
+    padding-right: $spacing-2;
+    border-right: 1px solid var(--border-color);
+    
+    @media (max-width: $breakpoint-md) {
+      padding: $spacing-1;
+      border-right: none;
+      border-bottom: 1px solid var(--border-color);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: $spacing-2;
+      align-items: center;
+    }
+  }
+  
+  .time-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: $spacing-1;
+    
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 0;
+    }
+    
+    .clock-icon {
+      color: var(--primary-color);
+      margin-right: $spacing-1;
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+    
+    .timezone-label {
+      flex: 1;
+      font-weight: 500;
+      color: var(--text-primary);
+      font-size: 0.8rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      .dst-indicator {
+        display: inline-block;
+        margin-left: $spacing-1;
+        padding: 0 $spacing-1;
+        font-size: 0.65rem;
+        font-weight: 600;
+        color: #fb923c;
+        background-color: rgba(251, 146, 60, 0.1);
+        border-radius: 3px;
+      }
+    }
+    
+    .remove-button {
+      @include button-reset;
+      font-size: $font-size-base;
+      color: var(--text-secondary);
+      padding: 0 $spacing-1;
+      flex-shrink: 0;
+      
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+  }
+  
+  .time {
+    font-size: $font-size-lg;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+    
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-base;
+      text-align: right;
+    }
+  }
+  
+  .date {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    margin-top: $spacing-1;
+    line-height: 1.2;
+    
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+  
+  .timeline-wrapper {
+    flex: 1;
+    min-width: 0;
+    
+    @media (max-width: $breakpoint-md) {
+      padding: $spacing-1;
+    }
+  }
+}

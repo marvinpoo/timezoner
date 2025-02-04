@@ -1,0 +1,31 @@
+export default {
+  translation: {
+    timeComparison: 'የጊዜ ንፅፅር',
+    selectReferenceTimezone: 'የማጣቀሻ የሰዓት ሰቅ ይምረጡ',
+    comparingTimesRelativeTo: 'ከ{{city}}፣ {{country}} ጋር የጊዜ ንፅፅር',
+    searchReferenceTimezone: 'የማጣቀሻ የሰዓት ሰቅ ፈልግ...',
+    searchCompareTimezones: 'ለማነፃፀር የሰዓት ሰቆችን ፈልግ...',
+    newGroup: 'አዲስ ቡድን',
+    noTimezonesFound: 'ምንም የሰዓት ሰቆች አልተገኙም',
+    shareGroup: 'ቡድን አጋራ',
+    editGroupName: 'የቡድን ስም አርትዕ',
+    deleteGroup: 'ቡድን ሰርዝ',
+    createNewGroup: 'አዲስ ቡድን ፍጠር',
+    enterGroupName: 'የቡድን ስም ያስገቡ...',
+    linkCopied: 'አገናኝ ተቀድቷል!',
+    failedToCopy: 'አገናኝ መቅዳት አልተሳካም',
+    european: 'የአውሮፓ',
+    asian: 'የእስያ',
+    african: 'የአፍሪካ',
+    northAmerican: 'የሰሜን አሜሪካ',
+    southAmerican: 'የደቡብ አሜሪካ',
+    indigenous: 'የአካባቢው',
+    dayTime: 'ቀን',
+    nightTime: 'ሌሊት',
+    currentTime: 'አሁን ያለው ሰዓት',
+    dstActive: 'የክረምት ሰዓት',
+    selectTimezone: 'የሰዓት ሰቅ ምረጥ',
+    removeTimezone: 'የሰዓት ሰቅ አስወግድ',
+    compareTimezones: 'የሰዓት ሰቆችን አነፃፅር'
+  }
+};

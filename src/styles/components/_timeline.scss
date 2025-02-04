@@ -1,0 +1,142 @@
+@import '../variables';
+@import '../mixins';
+
+.timeline {
+  margin-top: $spacing-1;
+  padding-top: $spacing-1;
+  border-top: 1px solid var(--border-color);
+  
+  @media (max-width: $breakpoint-md) {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .timeline-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $spacing-1;
+
+    .day-night-indicator {
+      display: flex;
+      gap: $spacing-1;
+
+      .sun-icon {
+        color: #fb923c;
+        width: 12px;
+        height: 12px;
+      }
+
+      .moon-icon {
+        color: var(--text-secondary);
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+
+  .timeline-hours {
+    display: grid;
+    grid-template-columns: repeat(24, minmax(40px, 1fr));
+    gap: 1px;
+    position: relative;
+    height: 48px;
+    background: var(--timeline-background);
+    border-radius: 6px;
+    overflow: hidden;
+    
+    @media (max-width: $breakpoint-md) {
+      height: 36px;
+      grid-template-columns: repeat(24, 40px);
+    }
+    
+    .timeline-hour {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      
+      &.daytime {
+        background: var(--timeline-day);
+        
+        .hour-label {
+          color: var(--text-primary);
+          font-size: 0.75rem;
+        }
+
+        &:hover {
+          background: var(--hover-color);
+        }
+      }
+      
+      &.nighttime {
+        background: var(--timeline-night);
+        
+        .hour-label {
+          color: var(--text-secondary);
+          font-size: 0.75rem;
+        }
+
+        &:hover {
+          background: var(--hover-color);
+        }
+      }
+      
+      &.current {
+        background: var(--timeline-current);
+        
+        .hour-label {
+          color: #000000;
+          font-weight: 600;
+          font-size: 0.8rem;
+        }
+        
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            45deg,
+            rgba(0, 0, 0, 0.05),
+            rgba(0, 0, 0, 0.1)
+          );
+        }
+
+        &:hover {
+          background: var(--accent-hover);
+        }
+      }
+
+      &.selected {
+        box-shadow: inset 0 0 0 2px var(--accent-color);
+
+        .hour-label {
+          color: var(--text-primary);
+          font-weight: 600;
+          transform: scale(1.1);
+        }
+      }
+
+      .hour-label {
+        font-size: 0.75rem;
+        font-weight: 500;
+        z-index: 1;
+        transition: transform 0.2s ease;
+        user-select: none;
+        
+        @media (max-width: $breakpoint-md) {
+          font-size: 0.7rem;
+        }
+      }
+
+      &:hover {
+        .hour-label {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+export default {
+  translation: {
+    timeComparison: 'Ukuqhathanisa Izikhathi',
+    selectReferenceTimezone: 'Khetha indawo yakho yesikhathi sokuqhathanisa',
+    comparingTimesRelativeTo: 'Ukuqhathanisa izikhathi mayelana ne-{{city}}, {{country}}',
+    searchReferenceTimezone: 'Sesha indawo yesikhathi sokuqhathanisa...',
+    searchCompareTimezones: 'Sesha izindawo zesikhathi zokuqhathanisa...',
+    newGroup: 'Iqembu Elisha',
+    noTimezonesFound: 'Azitholakalanga izindawo zesikhathi',
+    shareGroup: 'Yabelana ngeqembu',
+    editGroupName: 'Hlela igama leqembu',
+    deleteGroup: 'Susa iqembu',
+    createNewGroup: 'Dala iqembu elisha',
+    enterGroupName: 'Faka igama leqembu...',
+    linkCopied: 'Isixhumanisi sikopishelwe!',
+    failedToCopy: 'Hlulekile ukukopisha isixhumanisi',
+    european: 'YaseYurophu',
+    asian: 'YaseAsia',
+    african: 'YaseAfrika',
+    northAmerican: 'YaseMelika eseNyakatho',
+    southAmerican: 'YaseMelika eseNingizimu',
+    indigenous: 'Yendabuko',
+    dayTime: 'Emini',
+    nightTime: 'Ebusuku',
+    currentTime: 'Isikhathi Samanje',
+    dstActive: 'Isikhathi Sasehlobo',
+    selectTimezone: 'Khetha indawo yesikhathi',
+    removeTimezone: 'Susa indawo yesikhathi',
+    compareTimezones: 'Qhathanisa izindawo zesikhathi'
+  }
+};

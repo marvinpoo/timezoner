@@ -1,0 +1,129 @@
+@import '../variables';
+@import '../mixins';
+
+.timezone-search {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  
+  .search-input-wrapper {
+    position: relative;
+    transition: transform $transition-base;
+    
+    &:focus-within {
+      transform: scale(1.01);
+      
+      .search-icon {
+        color: var(--accent-color);
+      }
+    }
+    
+    .search-icon {
+      position: absolute;
+      left: $spacing-4;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-secondary);
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+      transition: color $transition-base;
+    }
+    
+    input {
+      width: 100%;
+      padding: $spacing-4;
+      padding-left: calc(#{$spacing-4} * 2 + 20px);
+      border: 2px solid var(--border-color);
+      border-radius: $border-radius-lg;
+      font-size: $font-size-lg;
+      background-color: var(--card-background);
+      color: var(--text-primary);
+      transition: all $transition-base;
+      
+      &::placeholder {
+        color: var(--text-secondary);
+      }
+      
+      &:hover:not(:disabled) {
+        border-color: var(--accent-color);
+      }
+      
+      &:focus {
+        outline: none;
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 3px rgba(46, 255, 147, 0.2);
+      }
+      
+      &:disabled {
+        background-color: var(--hover-color);
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
+    }
+  }
+  
+  .search-results {
+    @include card;
+    position: absolute;
+    top: calc(100% + #{$spacing-2});
+    left: 0;
+    right: 0;
+    margin-top: $spacing-2;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 10;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-background);
+    
+    &:empty {
+      display: none;
+    }
+    
+    .timezone-option {
+      @include button-reset;
+      width: 100%;
+      text-align: left;
+      padding: $spacing-3 $spacing-4;
+      border-bottom: 1px solid var(--border-color);
+      transition: all $transition-base;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      &:hover {
+        background-color: var(--hover-color);
+        padding-left: $spacing-6;
+        color: var(--accent-color);
+      }
+      
+      &:focus {
+        background-color: var(--hover-color);
+        outline: none;
+        color: var(--accent-color);
+      }
+      
+      .timezone-name {
+        display: block;
+        font-weight: 600;
+        color: inherit;
+        margin-bottom: $spacing-1;
+      }
+      
+      .timezone-details {
+        display: block;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+      }
+    }
+    
+    .no-results {
+      padding: $spacing-6;
+      text-align: center;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+  }
+}

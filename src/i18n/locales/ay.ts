@@ -1,0 +1,31 @@
+export default {
+  translation: {
+    timeComparison: 'Pacha Chiqanchawi',
+    selectReferenceTimezone: 'Pacha thiya ajllma',
+    comparingTimesRelativeTo: '{{city}}, {{country}} pacharu chiqanchawi',
+    searchReferenceTimezone: 'Pacha thiya thaqhaña...',
+    searchCompareTimezones: 'Chiqanchañataki pacha thiyanak thaqhaña...',
+    newGroup: 'Machaq Tama',
+    noTimezonesFound: 'Janiw pacha thiyanak jikxataskiti',
+    shareGroup: 'Tama churjaña',
+    editGroupName: 'Taman sutipa askichaña',
+    deleteGroup: 'Tama chhaqtayaña',
+    createNewGroup: 'Machaq tama uñstayaña',
+    enterGroupName: 'Taman sutipa qillqantaña...',
+    linkCopied: 'Chinuñ uñt\'ayata!',
+    failedToCopy: 'Janiw chinuñ uñt\'ayañ atkiti',
+    european: 'Europankiri',
+    asian: 'Asiankiri',
+    african: 'Africankiri',
+    northAmerican: 'Alaya Americankiri',
+    southAmerican: 'Urin Americankiri',
+    indigenous: 'Jaqin Arunakapata',
+    dayTime: 'Uru',
+    nightTime: 'Aruma',
+    currentTime: 'Jichha Pacha',
+    dstActive: 'Lupi Pacha',
+    selectTimezone: 'Pacha thiya ajlliña',
+    removeTimezone: 'Pacha thiya chhaqtayaña',
+    compareTimezones: 'Pacha thiyanak chiqanchaña'
+  }
+};
