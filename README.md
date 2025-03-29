@@ -1,10 +1,10 @@
 # Timezoner
 
-**Legal:**
+**Legal:** <br />
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) <br />
-**Dev Stack:**
+**Dev Stack:** <br />
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)](https://reactjs.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/) <br />
-**Server Stack:**
+**Server Stack:** <br />
 [![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/) [![Netlify Status](https://api.netlify.com/api/v1/badges/d51b9212-40aa-45c3-8a50-b4a9d25315c0/deploy-status)](https://app.netlify.com/sites/tymzone/deploys)
 
 A beautiful and intuitive timezone comparison tool built with React, TypeScript, and Vite. Simplify coordination across global teams and never miss a meeting due to timezone confusion again.
