@@ -10,6 +10,7 @@ import { EditableTitle } from './components/EditableTitle';
 import { LogoIcon } from './components/LogoIcon';
 import { timezones } from './data/timezones';
 import { useTimezoneGroups } from './hooks/useTimezoneGroups';
+import { parseSharedUrl } from './utils/urlSharing';
 
 function App() {
   const { t } = useTranslation();
@@ -28,6 +29,23 @@ function App() {
     if (groups.length === 0) {
       const newGroup = createGroup(t('newGroup'));
       setActiveGroupId(newGroup.id);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    console.log('Checking shared URL ...');
+    const cities = parseSharedUrl(new URLSearchParams(window.location.search));
+    console.log('Parsed cities:', cities);
+
+    if (cities.length > 0) {
+      // Test first item is the group name
+      const groupName = cities[0];
+      console.log('Creating group from URL, Name:', groupName);
+
+      const newGroup = createGroup(groupName);
+      setActiveGroupId(newGroup.id);
+      
+      /* Adding later if test checks out: Getting Timezones by Cities */
     }
   }, []);
 

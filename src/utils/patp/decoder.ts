@@ -56,7 +56,12 @@ export function decodePatPURL(url: string): string[] {
       throw new Error("Invalid URL format: Insufficient segments");
     }
 
-    const [groupName, ...encodedBlocks] = segments;
+    // The last four segments should be the encoded blocks
+    // Everything before that is part of the group name
+    const encodedBlocks = segments.slice(-4);
+    const groupNameParts = segments.slice(0, -4);
+    const groupName = groupNameParts.join('-');
+
     console.log('[decodePatPURL] Extracted parts:', {
       groupName,
       encodedBlocks
@@ -80,7 +85,7 @@ export function decodePatPURL(url: string): string[] {
     const numericSegments = encodedBlocks.map(decodePatPGroup);
     console.log('[decodePatPURL] Decoded numeric segments:', numericSegments);
 
-    // Reconstruct SHA-256 hash
+    /* // Reconstruct SHA-256 hash
     const reconstructedHash = numericSegments
       .map(seg => seg.toString(16).padStart(16, '0'))
       .join('');
@@ -88,7 +93,17 @@ export function decodePatPURL(url: string): string[] {
 
     // Return the group name as the first city
     console.log('[decodePatPURL] Returning group name:', [groupName]);
-    return [groupName];
+    return [groupName]; */
+
+    // Format the group name (replace hyphens with spaces, capitalize first letter)
+    const formattedGroupName = groupName
+     .split('-')
+     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+     .join(' ');
+
+     console.log('[decodePatPURL] Formatted group name:', formattedGroupName);
+    return [formattedGroupName];
+
   } catch (error) {
     console.error('[decodePatPURL] Error decoding URL:', {
       error,
