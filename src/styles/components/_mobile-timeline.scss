@@ -63,7 +63,7 @@
         justify-content: center;
         position: relative;
         user-select: none;
-        transition: background-color 0.2s ease;
+        transition: background-color .4s ease;
         will-change: transform;
         
         &.daytime {
@@ -117,7 +117,7 @@
         .hour-label {
           font-size: 1.2rem;
           font-weight: 500;
-          transition: transform 0.2s ease;
+          transition: transform .4s ease;
           backface-visibility: hidden;
         }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TimeDisplay } from './components/TimeDisplay';
 import { TimezoneSearch } from './components/TimezoneSearch';
@@ -24,6 +24,7 @@ function App() {
     deleteGroup,
     getShareableLink,
   } = useTimezoneGroups();
+  const [isListEditMode, setIsListEditMode] = useState(false);
 
   React.useEffect(() => {
     if (groups.length === 0) {
@@ -38,14 +39,11 @@ function App() {
     console.log('Parsed cities:', cities);
 
     if (cities.length > 0) {
-      // Test first item is the group name
       const groupName = cities[0];
       console.log('Creating group from URL, Name:', groupName);
 
       const newGroup = createGroup(groupName);
       setActiveGroupId(newGroup.id);
-      
-      /* Adding later if test checks out: Getting Timezones by Cities */
     }
   }, []);
 
@@ -118,6 +116,7 @@ function App() {
             value={activeGroup.name} 
             onChange={handleTitleChange}
             onShare={() => getShareableLink(activeGroup.id)}
+            onEditModeChange={setIsListEditMode}
           />
         )}
         <p className="subtitle">
@@ -146,6 +145,7 @@ function App() {
               label={`${activeGroup.mainTimezone.city}, ${activeGroup.mainTimezone.country}`}
               isMain
               onRemove={handleRemoveMainTimezone}
+              showDeleteButton={isListEditMode}
             />
           </div>
         )}
@@ -158,6 +158,7 @@ function App() {
                 timezone={tz.value}
                 label={`${tz.city}, ${tz.country}`}
                 onRemove={() => handleRemoveTimezone(index)}
+                showDeleteButton={isListEditMode}
               />
             ))}
           </div>

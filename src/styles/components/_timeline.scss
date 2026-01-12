@@ -37,10 +37,10 @@
 
   .timeline-hours {
     display: grid;
-    grid-template-columns: repeat(24, minmax(40px, 1fr));
+    grid-template-columns: repeat(24, 1fr);
     gap: 1px;
     position: relative;
-    height: 48px;
+    height: 64px;
     background: var(--timeline-background);
     border-radius: 6px;
     overflow: hidden;
@@ -56,7 +56,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.2s ease;
+      transition: .4s ease;
       cursor: pointer;
       
       &.daytime {
@@ -89,7 +89,7 @@
         background: var(--timeline-current);
         
         .hour-label {
-          color: #000000;
+          color: var(--border-color); 
           font-weight: 600;
           font-size: 0.8rem;
         }
@@ -116,25 +116,22 @@
         .hour-label {
           color: var(--text-primary);
           font-weight: 600;
-          transform: scale(1.1);
         }
+      }
+
+      &.current.selected {
+        background: var(--hover-color);
       }
 
       .hour-label {
         font-size: 0.75rem;
         font-weight: 500;
         z-index: 1;
-        transition: transform 0.2s ease;
+        transition: transform .4s ease;
         user-select: none;
         
         @media (max-width: $breakpoint-md) {
           font-size: 0.7rem;
-        }
-      }
-
-      &:hover {
-        .hour-label {
-          transform: scale(1.1);
         }
       }
     }
