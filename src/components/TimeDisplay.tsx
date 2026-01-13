@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { formatInTimeZone, getTimezoneOffset } from 'date-fns-tz';
-import { Clock, Trash2 } from 'lucide-react'; // Add Trash2
+import { Clock, Trash2, MapPin, ClockIcon } from 'lucide-react'; // Add MapPin and ClockIcon
 import { Timeline } from './Timeline';
 import { MobileTimeline } from './MobileTimeline';
 import { useTranslation } from 'react-i18next';
@@ -60,11 +60,17 @@ export const TimeDisplay: React.FC<TimeDisplayProps> = ({
     <div className={`time-display ${isMain ? 'main' : ''} ${showDeleteButton ? 'editing-active' : ''}`}>
       <div className="time-info">
         <div className="time-header">
-          <Clock className="clock-icon" />
-          <span className="timezone-label">
-            {label} ({formattedOffset})
-            {isDST && <span className="dst-indicator">{t('dstActive')}</span>}
-          </span>
+          <div className="location-info">
+            <MapPin className="location-icon" />
+            <span className="location-label">{label}</span>
+          </div>
+          <div className="timezone-info">
+            <ClockIcon className="timezone-icon" />
+            <span className="timezone-label">
+              {formattedOffset}
+              {isDST && <span className="dst-indicator">{t('dstActive')}</span>}
+            </span>
+          </div>
         </div>
         <div className="time">{formattedTime}</div>
         <div className="date">{formattedDate}</div>
