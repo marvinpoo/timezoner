@@ -6,6 +6,7 @@ import { useTimelineScroll } from '../context/TimelineScrollContext';
 interface MobileTimelineProps {
   timezone: string;
   currentHour: number;
+  showDeleteButton?: boolean;
 }
 
 export const MobileTimeline: React.FC<MobileTimelineProps> = ({ timezone, currentHour }) => {

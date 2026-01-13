@@ -1,14 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { PenLine, Share2 } from 'lucide-react';
+import { PenLine, Share2, Check } from 'lucide-react'; // Add Check icon
 import { ShareAnimation } from './ShareAnimation';
 
 interface EditableTitleProps {
   value: string;
   onChange: (value: string) => void;
   onShare?: () => Promise<string | null>;
+  onEditModeChange?: (isEditing: boolean) => void;
 }
 
-export const EditableTitle: React.FC<EditableTitleProps> = ({ value, onChange, onShare }) => {
+export const EditableTitle: React.FC<EditableTitleProps> = ({ value, onChange, onShare, onEditModeChange }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState(value);
   const [isShared, setIsShared] = useState(false);
@@ -27,21 +28,30 @@ export const EditableTitle: React.FC<EditableTitleProps> = ({ value, onChange, o
     }
   }, [isEditing]);
 
+  const setEditingMode = (editing: boolean) => {
+    setIsEditing(editing);
+    onEditModeChange?.(editing);
+  };
+
   const handleSubmit = () => {
     if (editValue.trim()) {
       onChange(editValue.trim());
     } else {
       setEditValue(value);
     }
-    setIsEditing(false);
+    setEditingMode(false);
+  };
+
+  const handleCancel = () => {
+    setEditValue(value);
+    setEditingMode(false);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       handleSubmit();
     } else if (e.key === 'Escape') {
-      setEditValue(value);
-      setIsEditing(false);
+      handleCancel();
     }
   };
 
@@ -72,22 +82,31 @@ export const EditableTitle: React.FC<EditableTitleProps> = ({ value, onChange, o
 
   return (
     <div className="editable-title">
+      <div className="title-display">
       {isEditing ? (
-        <input
-          ref={inputRef}
-          type="text"
-          value={editValue}
-          onChange={(e) => setEditValue(e.target.value)}
-          onBlur={handleSubmit}
-          onKeyDown={handleKeyDown}
-          className="title-input"
-        />
+        <>
+          <input
+            ref={inputRef}
+            type="text"
+            value={editValue}
+            onChange={(e) => setEditValue(e.target.value)}
+            onKeyDown={handleKeyDown}
+            className="title-input"
+          />
+          <button 
+            className="action-button" 
+            onClick={handleSubmit}
+            title="Save changes"
+          >
+            <Check size={20} />
+          </button>
+        </>
       ) : (
-        <div className="title-display">
+        <>
           <h1>{value}</h1>
           <div className="title-actions">
-            <button className="action-button" onClick={() => setIsEditing(true)}>
-              <PenLine className="edit-icon" size={20} />
+            <button className="action-button" onClick={() => setEditingMode(true)}>
+              <PenLine size={20} />
             </button>
             {onShare && (
               <button 
@@ -103,8 +122,9 @@ export const EditableTitle: React.FC<EditableTitleProps> = ({ value, onChange, o
               </button>
             )}
           </div>
-        </div>
+        </>
       )}
+      </div>
       {shareTooltip && (
         <div className="share-tooltip">{shareTooltip}</div>
       )}

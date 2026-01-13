@@ -16,6 +16,11 @@
   --accent-color: #00b359;
   --accent-hover: #009148;
   --logo-filter: invert(40%) sepia(85%) saturate(1191%) hue-rotate(127deg) brightness(96%) contrast(101%);
+
+  --feedback-important: #ff0000;
+  --feedback-important-dark: #cc0000;
+  --feedback-info: #0000ff;
+  --feedback-success: #00ff00;
 }
 
 // Colors - Dark Theme
@@ -57,7 +62,7 @@ $border-radius: 0.5rem;
 $border-radius-lg: 0.75rem;
 
 // Transitions
-$transition-base: 0.2s ease;
+$transition-base: .4s ease;
 
 // Breakpoints
 $breakpoint-sm: 640px;

@@ -118,12 +118,13 @@ body {
   
   main.timeline-focused {
     flex: 1;
-    max-width: 1200px;
     margin: 0 auto;
     padding: 0 $spacing-6 calc($spacing-6 + 3rem);
     display: flex;
     flex-direction: column;
     gap: $spacing-4;
+    width: 100%;
+    // max-width: 1200px;
     
     @media (max-width: $breakpoint-md) {
       padding: 0 $spacing-2 calc($spacing-2 + 5rem);

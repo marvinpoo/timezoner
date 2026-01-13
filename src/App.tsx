@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TimeDisplay } from './components/TimeDisplay';
 import { TimezoneSearch } from './components/TimezoneSearch';
@@ -10,6 +10,7 @@ import { EditableTitle } from './components/EditableTitle';
 import { LogoIcon } from './components/LogoIcon';
 import { timezones } from './data/timezones';
 import { useTimezoneGroups } from './hooks/useTimezoneGroups';
+import { parseSharedUrl } from './utils/urlSharing';
 
 function App() {
   const { t } = useTranslation();
@@ -23,10 +24,25 @@ function App() {
     deleteGroup,
     getShareableLink,
   } = useTimezoneGroups();
+  const [isListEditMode, setIsListEditMode] = useState(false);
 
   React.useEffect(() => {
     if (groups.length === 0) {
       const newGroup = createGroup(t('newGroup'));
+      setActiveGroupId(newGroup.id);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    console.log('Checking shared URL ...');
+    const cities = parseSharedUrl(new URLSearchParams(window.location.search));
+    console.log('Parsed cities:', cities);
+
+    if (cities.length > 0) {
+      const groupName = cities[0];
+      console.log('Creating group from URL, Name:', groupName);
+
+      const newGroup = createGroup(groupName);
       setActiveGroupId(newGroup.id);
     }
   }, []);
@@ -100,6 +116,7 @@ function App() {
             value={activeGroup.name} 
             onChange={handleTitleChange}
             onShare={() => getShareableLink(activeGroup.id)}
+            onEditModeChange={setIsListEditMode}
           />
         )}
         <p className="subtitle">
@@ -128,6 +145,7 @@ function App() {
               label={`${activeGroup.mainTimezone.city}, ${activeGroup.mainTimezone.country}`}
               isMain
               onRemove={handleRemoveMainTimezone}
+              showDeleteButton={isListEditMode}
             />
           </div>
         )}
@@ -140,6 +158,7 @@ function App() {
                 timezone={tz.value}
                 label={`${tz.city}, ${tz.country}`}
                 onRemove={() => handleRemoveTimezone(index)}
+                showDeleteButton={isListEditMode}
               />
             ))}
           </div>
